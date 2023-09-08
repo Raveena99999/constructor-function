@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>onlineBookstore</title>
+  </head>
+  <body>
+    <script>
+      function Author(name, birthYear, nationality) {
+        this.name = name;
+        this.birthYear = birthYear;
+        this.nationality = nationality;
+      }
+      function Book(title, author, genre, price) {
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.price = price;
+
+        this.getBookInfo = function () {
+          console.log(`tittle of book is ${this.title}`);
+          console.log(`author of book is ${this.author.name}`);
+          console.log(`genre of book is ${this.genre}`);
+          console.log(`price of book is ${this.price}`);
+        };
+      }
+      // Book.prototype.getBookInfo = function(){                        // using prototype
+      //           console.log(`tittle of book is ${this.title}`)
+      //           console.log(`author of book is ${this.author.name}`)
+      //           console.log(`genre of book is ${this.genre}`)
+      //           console.log(`price of book is ${this.price}`)
+
+      // }
+
+      let author1 = new Author("Chetan Bhagat", 1974, "indian");
+      let author2 = new Author("Vikram Seth", 1952, "indian");
+      let author3 = new Author("Ruskin Bond", 1934, "british indian");
+
+      console.log(author1);
+      console.log(author2);
+      console.log(author3);
+
+      let Book1 = new Book("Catching Fire", author1, "intersting", 600);
+      let Book2 = new Book("Titanic", author2, "romance", 210);
+      let Book3 = new Book("Khatta meetha", author3, "comedy", 121);
+
+      console.log("******DETAILS OF BOOK 1*******");
+    
+      Book1.getBookInfo();
+      console.log("******DETAILS OF BOOK 2******");
+      Book2.getBookInfo();
+      console.log("******DETAILS OF BOOK 3******");
+
+      Book3.getBookInfo();
+    </script>
+  </body>
+</html>

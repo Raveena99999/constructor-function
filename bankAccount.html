@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank account</title>
+</head>
+<body>
+     <script>
+     
+    
+  function BankAccount (accountNumber, name, type,balance){
+
+  this.accountNumber = accountNumber
+  this.name = name
+  this.type = type
+  this.balance = balance
+
+
+ this.checkBalance = function(){
+  console.log(this.balance)
+ }
+
+
+ this.isActive = function(){
+  if(this.balance >500){
+    return true;
+  }
+  return false
+ }
+
+
+
+ this.test = function(){
+ if (this.isActive()===true){
+          console.log('Active Account')
+        }
+        else{
+          console.log("not active")
+        }
+      }
+
+
+
+ this.deposit = function(amount){
+  if(amount>0){                                   // if deposit amount is in -ve
+   this.balance += amount
+   console.log("deposit " + amount + ", New balance " + this.balance)
+  }
+  else{
+    console.log("Invalid deposit amount")
+  }
+ }
+
+
+
+ this.withdraw = function(amount){
+  if(this.balance>=amount && amount>0 ){
+            this.balance-=amount;
+            console.log("withdrawl  " + amount + ", New balance " + this.balance)
+        }
+        else{
+    console.log("Invalid withdrawl amount")
+  }
+}    
+}
+
+
+function getTotalBalance(accounts){
+  let total = 0
+
+       for(let acc of accounts){
+        if(acc.isActive()==true){
+        total+=acc.balance
+      }
+
+       }
+       return total
+      }
+
+     
+     
+
+ let BankAccount1 = new BankAccount (587451355,"ravi","saving",1000)
+ console.log(BankAccount1)
+ BankAccount1.checkBalance()
+ BankAccount1.deposit(200)
+ BankAccount1.withdraw (500)
+ console.log(BankAccount1.isActive())
+ console.log(getTotalBalance())
+ BankAccount1.test()
+
+ let BankAccount2 = new BankAccount (987451355,"ravina","saving",50)
+ console.log(BankAccount2)
+ BankAccount2.checkBalance()
+ BankAccount2.deposit(200)
+ BankAccount2.withdraw (500)
+ console.log(BankAccount2.isActive())
+ BankAccount2.test()
+
+
+ let BankAccount3 = new BankAccount (78499451355,"vina","saving",1500)
+ console.log(BankAccount3)
+ BankAccount3.checkBalance()
+ BankAccount3.deposit(200)
+ BankAccount3.withdraw (500)
+ console.log(BankAccount3.isActive())
+ BankAccount3.test()
+
+ let arr = [BankAccount1,BankAccount2,BankAccount3]
+      console.log(getTotalBalance(arr))
+
+
+     </script>
+</body>
+</html>
